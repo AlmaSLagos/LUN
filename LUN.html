@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LUN - INICIO</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="codigo.js"></script>
+        <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="img/641px-Water_Droplet_Pin.webp">
+        <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700"rel="stylesheet"/>
+    </head>
+    <body>
+            <header></header>       
+            <!--LOGIN-->
+            <div id="divAccedoOregistro">
+                <p><b>Administradores:</b></p>
+                <p><b>Antonio</b> Password: a1234, Mail: tony@gmail.com</p>
+                <p><b>Maria</b> Password: b1234, Mail: mary@gmail.com</p>   
+                <p><b>Juan</b> Password: c1234, Mail: juan@hotmail.com</p>
+                <input type="text" id="mailAc" placeholder="Mail" /><br>
+                <input type="password" id="passAc" placeholder="Contraseña" /><br>
+                <button id="btnAcceder">Acceder</button> <button id="btnRegistroIr">Registrarse</button>
+                
+            </div>
+        
+            <div id="divRegistro" style="display: none">
+                <input type="text" id="name" placeholder="Nombre de ususario" /><br>
+                <input type="text" id="mail" placeholder="Mail" /><br>
+                <input type="password" id="pass" placeholder="Contraseña" /><br>
+                <button id="btnRegistro">Registrarse</button> <button id="btnCancelarRegistro">Cancelar</button><br>
+                <div id="divMostrarA"></div><br>
+                <div id="divMostrarB"></div><br>
+                <div id="divMostrarC"></div><br>
+            </div>
+            <!--MENU-->
+            <div id="pagPrincipal" style="display: none">
+                <h1>MENU PRINCIPAL<h1>
+                <button id="btnEquipos" style="display: none">Equipos</button> <br>
+                <button id="btnCompetencias">Competencias</button> <br>
+                <button id="btnReportesAdmin" style="display: none">Reportes</button>
+                <button id="btnReportesSocio" style="display: none">Reportes</button><br>
+                <button id="btnCambiarPass" style="display: none">Cambiar mi contrase&ntilde;a</button>
+                <button id="btnHabilitarOinhabilitar" style="display: none">Habilitar o Inhabilitar Socio</button><br>
+                <button id="btnCerrarSesion">Cerrar Sesion</button> <br>
+            </div>
+            <!--EQUIPOS-->
+            <div id="equipos" style="display: none">
+                <h2>EQUIPOS</h2>
+                <button id="irCrearEquipo">Crear un Equipo</button> <br>
+                <h2>EQUIPOS YA CREADOS:</h2>
+                <table border='1' id='tablaEquipos'>
+                </table>
+                <button id="atrasEquipo">Atras</button>
+            </div>
+    
+            <div id="crearEquipo" style="display: none">
+                <h2>CREAR EQUIPO</h2>
+                <label>Nombre del equipo:</label><br><input type="text" placeholder="Nombre del equipo" id="nombreEquipo"><br>
+                <label>Elegir logo:</label><br>
+                <div id="logosEquipos">
+                    <div class="logoDeEquipo"><img src="img/logo1.png" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo1.png" checked></div>
+                    <div class="logoDeEquipo"> <img src="img/logo2.png" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo2.png"></div>
+                    <div class="logoDeEquipo"> <img src="img/logo3.jpg" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo3.jpg"></div>
+                    <div class="logoDeEquipo"><img src="img/logo4.jpg" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo4.jpg"></div>
+                    <div class="logoDeEquipo"> <img src="img/logo5.jpg" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo5.jpg"></div>
+                    <div class="logoDeEquipo"><img src="img/logo6.jpg" width="80px" height="80px"><br> <input type="radio"
+                            name="elegirLogo" value="logo6.jpg"></div>
+                </div>
+                <button id="btnCrearEquipo">Crear Equipo</button><br>
+                <button id="atrasCrearEquipo">Atras</button>    
+            </div>
+            <!--COMPETENCIA-->
+            <div id="competencias" style="display: none">
+                <h2>COMPETENCIAS</h2>
+                <div id="competenciasAdmin" style="display: none">
+                    <button id="btnIrCrearCompetencia">Crear una nueva
+                        competencia</button><br>
+                    <button id="btnIrIniciarCompetencia">Iniciar e informar datos una Competencia</button><br>
+                </div>
+                <div id="competenciasSocio" style="display: none">
+                    <table border='1' id='tablaCompetencias'>
+                    </table>
+                </div>
+                <button id="atrasCompetencia">Atras</button>
+            </div>
+    
+            <div id="idCrearCompetencia" style="display: none">
+                <input type="text" placeholder="Nombre de la nueva competencia" id="txtNuevaCompetencia"></input><br>
+                <button id="btnCrearCompetencia">Crear una nueva competencia</button><br>
+                <button id="btnAtrasCrearCompetencia">Atras</button>
+            </div>
+            <div id="idInicioCompetencia" style="display: none">
+                <input type="text" placeholder="Nombre de la nueva competencia" id="txtInicioCompetencia"></input><br>
+                <input type="text" placeholder="Nombre Equipo" id="txtEquipoParticipando"></input><br>
+                <input type="text" placeholder="Metros del participante 1" id="metrosMiembro1"></input><br>
+                <input type="text" placeholder="Metros del participante 2" id="metrosMiembro2"></input><br>
+                <input type="text" placeholder="Metros del participante 3" id="metrosMiembro3"></input><br>
+                <button id="btnGuardarDatosCompetencia">Guargar datos</button><br>
+                <button id="atrasInicioCompetencia">Atras</button><br>
+            </div>
+            <!--REPORTES-->
+            <div id="reportesS" style="display: none">
+                <h2>REPORTES</h2>
+                <table border='1' id='tablaReporteSocios'>
+                    <tr>
+                        <td>Competencias en que participaste:</td>
+                        <td>Total de metros que hiciste:</td>
+                    </tr>
+                </table>
+                <button id="atrasReporteS">Atras</button>
+            </div>
+            <div id="reportesA" style="display: none">
+                <h2>REPORTES</h2>
+                <table border='1' id='tablaReporteAdmin'>
+                    <tr>
+                        <td>Competencias</td>
+                        <td>Equipos</td>
+                        <td>Logo</td>
+                        <td>Miembro 1</td>
+                        <td>Miembro 2</td>
+                        <td>Miembro 3</td>
+                        <td>Total de metros</td>
+                    </tr>
+    
+                </table>
+    
+                <button id="atrasReporteA">Atras</button>
+            </div>
+            <!--CAMBIAR PASSWORD-->
+            <div id="cambioPassword" style="display: none">
+                <h2>CAMBIAR MI CONTRASE&Ntilde;A</h2>
+                <label>contrase&ntilde;a actual:</label><br><input type="password" id="passActual" /> <br>
+                <label>contrase&ntilde;a nueva:</label><br><input type="password" id="passNuevo" /> <br>
+                <label>confirmar contrase&ntilde;a nueva:</label><br><input type="password" id="confirmarPassNuevo" />
+                <br>
+                <button id="cambiarPass">Cambiar</button>
+                <button id="atrasCambiaPass">Atras</button>
+            </div>
+            <!--HABILITAR O DESHABILITAR SOCIO-->
+            <div id="deshabilitar" style="display: none;">
+                <h2>HABILITAR O DESHABILITAR USUARIO</h2>
+                <input type="text" id="correoUsuario" placeholder="Mail del socio"><br>
+                <button id="btnHabilitarDeshabilitar">Cambiar Estado</button><br>
+                <button id="atrasDeshabilita">Atras</button><br>
+                <div id="mostrarHabilitarDeshabilitar"></div>
+                <br>
+                <table border='1' id='tablaSocios' style="background-color: white;">
+                    <tr>
+                        <td>Nombre</td>
+                        <td>E-Mail</td>
+                        <td>Estado</td>
+                    </tr>    
+                </table>    
+            </div>
+            <div id=divMostrar></div>  
+        <div class="espacio"></div>               
+        <footer><p>@Copyright2019-LUN by Alma S. Lagos</p></footer>     
+    </body>
+</html>    
