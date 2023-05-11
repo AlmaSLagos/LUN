@@ -2,12 +2,20 @@
     margin: 0;
     padding: 0;
 }
+body { 
+    background-color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
 header{
     
     height: 100px;
-    background-image: url('img/pizap.com15777403703291.png');
+    background-image: url('img/banner.svg');
     background-size: cover;
     background-position: center;
+    margin-bottom: 20px;
 }
 input{
     width: 400px;
@@ -15,36 +23,33 @@ input{
 button{
     width:500px;
     font-size:30px;
-    color: #005588;
-    border: 1px solid #005588;
+    color: #0FA0D9;
+    border: 1px solid #0FA0D9;
     border-radius: 3px;
-    background-color: rgb(3, 3, 3);
+    background-color: #191919;
     font-size: 20px;
     margin-top: 10px;
-}
-body { 
-    background-color: #97cdff;
-    align-content: center;
-    text-align: center;
 }
 #divAccedoOregistro{   
 margin-top: 80px;
 }
 footer{
-    background-color: #2777d3;
+    background-color: #0FA0D9;
     width: 100%;
     position: fixed;
-    bottom: 0;  
+    bottom: 0;
+    height: 30px;  
+    padding-top: 10px;
 }
 .espacio{
     margin-bottom: 50px;
 }
-h1, h2{
-    font-family:'Heebo', sans-serif;
+h1, h2{ 
     font-size: 40px;
 }
 table{
-    border-collapse: collapse;  
+    border-collapse: collapse;
+    color: black;  
 }
 tr{
     border-bottom:  1px solid gray;
@@ -116,4 +121,5 @@ input {
         width: 300px;
     }   
 }
+
 

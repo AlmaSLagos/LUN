@@ -35,46 +35,45 @@ var equipos = new Array();
 var arrayCompetencias = new Array();
 //OCULTAR PAG PRINCIPAL Y MOSTRAR PAG DE LAS DIFERENTES FUNCIONALIDADES 
 //AL HACER CLICK EN BOTONES DEL INICIO
-
 //CAMBIO DE PAGINAS
 function equiposInicio() {
-    $("title").html("EQUIPOS")
+    $("title").html("EQUIPOS");
     $('#pagPrincipal').hide();
     $('#equipos').show();
     $("#divMostrar").html('');
-    listarEquipos()
+    listarEquipos();
 }
 function competenciaInicio() {
-    $("title").html("COMPETENCIAS")
+    $("title").html("COMPETENCIAS");
     $('#pagPrincipal').hide();
     $('#competencias').show();
     $("#divMostrar").html('');
-    listarCompetencias()
+    listarCompetencias();
 }
 function reporteInicioA() {
-    $("title").html("REPORTE")
+    $("title").html("REPORTE");
     $('#pagPrincipal').hide();
     $('#reportesA').show();
     $("#divMostrar").html('');
 }
 function reporteInicioS() {
-    $("title").html("REPORTE")
+    $("title").html("REPORTE");
     $('#pagPrincipal').hide();
     $('#reportesS').show();
     $("#divMostrar").html('');
 }
 function cambiarPassInicio() {
-    $("title").html("CAMBIAR CONTRASEÑA")
+    $("title").html("CAMBIAR CONTRASEÑA");
     $('#pagPrincipal').hide();
     $('#cambioPassword').show();
     $("#divMostrar").html('');
 }
 function deshabilitarInicio() {
-    $("title").html("HABILITAR O DESHABILITAR")
+    $("title").html("HABILITAR O DESHABILITAR");
     $('#pagPrincipal').hide();
     $('#deshabilitar').show();
     $("#divMostrar").html('');
-    cargarSociosTabla()
+    cargarSociosTabla();
 }
 function irRegistrar() {
     $('#divAccedoOregistro').hide();
@@ -144,8 +143,6 @@ function atrasInicioCompetencia() {
     $("#divMostrar").html('');
 }
 //FUNCIONALIDAD DE LA PAGINA
-
-
 function preCargaDeDatos() {
     //Los administradores ya estan guardados:
     var adminUno = { "Nombre": "Antonio", "Password": "a1234", "Mail": "tony@gmail.com" };
@@ -155,7 +152,6 @@ function preCargaDeDatos() {
     administradores.push(adminDos);
     administradores.push(adminTres);
 }
-
 //Lo que ingresa la persona para gegistrarse:
 function agregarSocio() {
     var nombre = $("#name").val();
@@ -163,9 +159,7 @@ function agregarSocio() {
     var mail = $("#mail").val();
     var estado = "Habilitado";
     guardarAux(nombre, password, mail, estado);
-
 }
-
 //Traigo para aca los returns de las funciones que verifican:
 function guardarAux(pNombre, pPassword, pMail, pEstado) {
     var pEquipo = " "; //si no esta en ningun equipo el valor es espacio " "
@@ -204,7 +198,6 @@ function guardar(pNombre, pPassword, pMail, pEstado, pEquipo) {
     socios.push(unSocio);
 }
 //FUNCIONES QUE VERIFICAN:
-
 function existeMailUsuario(pMailUser) {
     //Si el mail no es el mismo que el de un admi, y si ya hay otros socios registrados, uso un for para ver si no es el mismo nombre que el de otro.
     var ocurrencia = false;
@@ -222,7 +215,6 @@ function existeMailUsuario(pMailUser) {
 //Si no tiene mas de dos letras, nombre mal es verdadero 
 //si tiene dos letras esta bien y recorro para ver que solo use letras 
 //si tiene algo que no sea letra nombre mal es verdad, retorna nombre mal.
-
 function validarNombre(pNombreUser) {
     var nombreMal = false;
     if (pNombreUser.length >= 2) {
@@ -268,19 +260,15 @@ function acceder() {
     var passAcceder = $("#passAc").val();
     loginAdminoSocio(correoAcceder, passAcceder);
 }
-
 function loginAdminoSocio(elCorreo, elPassword) {
     var ok = false;
     var esAdmin = false;
     var esSocio = false;
     for (var i = 0; i < administradores.length; i++) {
         var elAdministrador = administradores[i];
-
         if (elAdministrador.Mail === elCorreo && elAdministrador.Password === elPassword) {
             ok = true;
             esAdmin = true;
-
-
         } else {
             $("#divMostrar").html("Mail o contraseña es incorrecta");
         }
@@ -291,8 +279,6 @@ function loginAdminoSocio(elCorreo, elPassword) {
             if (elSocio.Mail === elCorreo && elSocio.Password === elPassword) {
                 ok = true;
                 esSocio = socios[i].Estado;
-
-
             } else {
                 $("#divMostrar").html("Mail o contraseña es incorrecta");
             }
@@ -322,24 +308,18 @@ function loginAdminoSocio(elCorreo, elPassword) {
     } else {
         $("#divMostrar").html("No puedes acceder, contactate con un Administrador");
     }
-
-
 }
 //LISTAR SOCIOS
 function cargarSociosTabla() {
     $('#tablaSocios').html('<tr><td>Nombre</td><td>Mail</td><td>Estado</td></tr>');
-
     for (var i = 0; i < socios.length; i++) {
         var Nombre = socios[i].Nombre;
-
         var Mail = socios[i].Mail;
         var Estado = socios[i].Estado;
-
         $('#tablaSocios').append('<tr><td>' + Nombre + '</td><td>' + Mail + '</td><td>' + Estado + '</td></tr>');
 
     }
 }
-
 //FUNCION PARA HABILITAR O DESHABILITAR SOCIO
 function cambiarEstado() {
     var ocurrencia = false;
@@ -364,7 +344,6 @@ function cambiarEstado() {
         $('#mostrarHabilitarDeshabilitar').html('El correo electronico es incorrecto');
     }
 }
-
 //funcion para cambiar contraseña.
 function cambiarPass() {
     var mensajeCambiarPass = "";
@@ -388,9 +367,7 @@ function cambiarPass() {
     }
     $("#divMostrar").html(mensajeCambiarPass);
 }
-
 //funcion listar equipos
-
 function listarEquipos() {
     var elSocio = socioActual();
     var yaEsta = false;
@@ -402,7 +379,7 @@ function listarEquipos() {
         var miembro2 = equipos[i].Miembros[1];
         var miembro3 = equipos[i].Miembros[2];
         var sinEquipo = comprobarSocioEquipo();
-        var laFila = '<tr><td><img src="/img/' + logoEquipo + '" width="50px" height="50px"></td>';
+        var laFila = '<tr><td><img src="img/' + logoEquipo + '" width="50px" height="50px"></td>';
         laFila += '<td>' + nombreEquipo + '</td><td>';
         if (socios[elSocio].Equipo == nombreEquipo) {
             yaEsta = true
@@ -431,26 +408,24 @@ function listarEquipos() {
     }
 }
 //funcion crear equipos 
-
 function crearEquipo() {
     var elSocio = socioActual();
     var sinEquipo = comprobarSocioEquipo();
     var nombreEquipo = $('#nombreEquipo').val();
-
     pNombreEqui = nombreEquipo.toLowerCase();
     pNombreEqui = pNombreEqui.replace(pNombreEqui[0], pNombreEqui[0].toUpperCase());
-
     var equipoRepetido = existeNombreEquipo(pNombreEqui);
     var nombreEquipoMal = validarNombreEquipo(pNombreEqui);
     var logoEquipo = $('[name="elegirLogo"]:checked').val();
+    console.log("logoEquipo: ", logoEquipo)
     if (sinEquipo && !equipoRepetido && !nombreEquipoMal && logoEquipo) {
         var miembrosEquipo = new Array();
         miembrosEquipo.push(sesionActual);
         var info = { Logo: logoEquipo, Nombre: pNombreEqui, Miembros: miembrosEquipo };
         equipos.push(info);
         socios[elSocio].Equipo = pNombreEqui;
-        atrasCrearEquipo()
-        $("#divMostrar").html('')
+        atrasCrearEquipo();
+        $("#divMostrar").html('');
     } else if (!sinEquipo) {
         $("#divMostrar").html("No puede crear un equipo si ya pertenece a uno.");
     } else if (equipoRepetido) {
@@ -461,7 +436,6 @@ function crearEquipo() {
         $("#divMostrar").html("Tiene que elegir un logo.");
     }
 }
-
 //FUNCION PARA VALIDAR EL NOMBRE DE UN EQUIPO
 function validarNombreEquipo(pNombreEquipo) {
     var nombreEquipoMal = false;
@@ -480,7 +454,6 @@ function validarNombreEquipo(pNombreEquipo) {
     }
     return nombreEquipoMal;
 }
-
 function socioActual() {
     aux = 0;
     for (var i = 0; i < socios.length; i++) {
@@ -490,7 +463,6 @@ function socioActual() {
     }
     return aux;
 }
-
 //No puedes crear equipos ni unirte a otros si ya estas en un equipo
 function comprobarSocioEquipo() {
     var elSocio = socioActual();
@@ -500,7 +472,6 @@ function comprobarSocioEquipo() {
     }
     return sinEquipo;
 }
-
 //No puede haber equipos con el mismo nombre
 function existeNombreEquipo(pEquipoRepetido) {
     var equipoRepetido = false;
@@ -518,11 +489,9 @@ function dejarEquipo(nombreEquipo, user) {
     } else {
         elSocio = socioActual();
     }
-
     elEquipo = null;
     elMiembro = null;
     socios[elSocio].Equipo = ' ';
-
     for (var i = 0; i < equipos.length; i++) {
         if (equipos[i].Nombre == nombreEquipo) {
             elEquipo = i;
@@ -555,14 +524,13 @@ function unirseEquipo(nombreEquipo) {
     listarEquipos();
 }
 //SI LAS VALIDACIONES ESTAN BIEN GUARDO EN EL ARRAY
-
 function crearCompetencia() {
     var nombre = $("#txtNuevaCompetencia").val();
     nombre = nombre.toLowerCase();
     nombre = nombre.replace(nombre[0], nombre[0].toUpperCase());
     var nombreMal = validarNombreCompetencia(nombre);
     var mensajeCrearCompetencia = "";
-    //si este bien
+    //si esta bien
     if (!nombreMal) {
         arrayCompetencias.push({ Nombre: nombre, Equipos: [] });
         atrasCrearCompetencia()
@@ -571,7 +539,6 @@ function crearCompetencia() {
         mensajeCrearCompetencia = "El nombre debe tener minimo dos litras y no debe tener numeros u otros caracteres. Si no es el caso, puede que otro Equipo ya este usando este nombre, pruebe con otro.";
         $("#divMostrar").html(mensajeCrearCompetencia);
     }
-
 }
 //VALIDO CREACION DE COMPETENCIA
 function validarNombreCompetencia(pNombre) {
@@ -597,15 +564,12 @@ function validarNombreCompetencia(pNombre) {
     }
     return nombreCompetenciaMal;
 }
-//LITAR COMPETENCIAS EN UNA TABLA CON SUS EQUIPOS
+//LISTAR COMPETENCIAS EN UNA TABLA CON SUS EQUIPOS
 function listarCompetencias() {
     var miEquipo = comprobarMiEquipo();
     var laFila = "";
     $("#tablaCompetencias").html("<tr><td>Competencia</td><td>Equipo</td><td>Miembro 1</td><td>Miembro 2</td><td>Miembro 3</td><td>Metros</td><td>Inscribirse</td></tr>")
-
     for (var i = 0; i < arrayCompetencias.length; i++) {
-
-
         if (arrayCompetencias[i].Equipos.length == 0) {
             laFila += "<tr><td>" + arrayCompetencias[i].Nombre + "</td>";
             laFila += "<td> </td><td> </td><td> </td><td> </td><td> </td>";
@@ -669,7 +633,6 @@ function listarCompetencias() {
                     } else {
                         laFila += "<td rowspan=" + arrayCompetencias[i].Equipos.length + "><button onclick='inscribirseCompetencia(" + i + ")'>Inscribirme</button></td>";
                     }
-
                 }
             }
         }
@@ -677,7 +640,6 @@ function listarCompetencias() {
     }
     $("#tablaCompetencias").append(laFila);
 }
-
 //COMPROBAR TODO ANTES DE INSCRIBIRSE A UNA COMPETENCIA
 function comprobarMiEquipo() {
     var elSocio = socioActual();
@@ -700,7 +662,6 @@ function comprobarMiEquipo() {
     }
     return resultado;
 }
-
 //FUNCION PARA INSCRIBIRSE EN UNA COMPETENCIA
 function inscribirseCompetencia(laCompetencia) {
     var elEquipo = comprobarMiEquipo();
